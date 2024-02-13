@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-productdetails',
   templateUrl: './productdetails.component.html',
   styleUrl: './productdetails.component.css'
-})
+}) 
 export class ProductdetailsComponent implements OnInit {
 
   IsLoading: boolean = false;
@@ -66,7 +66,7 @@ export class ProductdetailsComponent implements OnInit {
   }
 
   ErrorToast() {
-    this._ToastrService?.error('Failed To Add Product To Cart');
+    this._ToastrService?.error('Failed To Add Product To Cart Refresh Your Page');
     console.log('toster error')
   }
 
