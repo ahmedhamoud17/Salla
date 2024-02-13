@@ -1,0 +1,38 @@
+<div class="py-1">
+    <div class="container p-5 my-3 bg-light">
+        <div class="cart" *ngIf="CartContainer">
+
+            <div class="d-flex align-items-center justify-content-between">
+                <h5 class="pb-4 mt-4 fw-bold">Salla Cart</h5>
+                <img class="" width="80" height="75" src="assets\logo.png" alt="">
+            </div>
+            <h5 class="main-color py-3">Total Price : {{CartContainer?.totalCartPrice}} EGP</h5>
+            <div *ngFor="let item of CartContainer?.products" class="row border-bottom py-3 gy-5">
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                    <img [src]="item?.product?.imageCover" height="250" class="w-100 rounded-3" alt="">
+                </div>
+                <div class="col-lg-10 col-md-6 col-sm-12 d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="ps-2 fw-semibold">{{item?.product?.title.split(' ').slice(0, 7).join(' ')}}</h4>
+                            <h5 class="ps-2 fw-semibold main-color pt-3">Price : {{item.price}}</h5>
+                            <button (click)="RemoveItem(item?.product?._id)" class="btn my-2 py-2"><i
+                                    class="fa-regular fa-trash-can main-color me-2 fs-5"></i> Remove</button>
+                        </div>
+                        <div>
+                            <button (click)="UpdateCartCount(item?.product?._id , item?.count+1 )"
+                                class="btn btn-sm btn-light shadow py-1 px-3 fs-5 fw-bold">+</button>
+                            <span class="mx-3 mt-1 fw-semibold fs-5 count">{{item?.count}}</span>
+                            <button (click)="UpdateCartCount(item?.product?._id , item?.count-1)"
+                                class="btn btn-sm btn-light shadow py-1 px-3 fs-5 fw-bold">-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button (click)="NavigateToCheckSession()" class="btn button-main my-4 px-4 py-3 fw-bold w-25">Online
+                Payment</button>
+
+        </div>
+        <app-loading *ngIf="CartContainer == null"></app-loading>
+    </div>
+</div>

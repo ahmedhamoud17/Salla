@@ -1,0 +1,44 @@
+<div>
+    <div class="container p-5">
+        <div class="row" *ngIf="ProductDetailsContainer">
+            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                <div class="p-3">
+                    <owl-carousel-o [options]="customOptions">
+ 
+                        <ng-container *ngFor="let slide of ProductDetailsContainer?.images">
+                          <ng-template carouselSlide >
+                            <img class="w-100 rounded-4" [src]="slide">
+                          </ng-template>
+                        </ng-container>
+                     
+                      </owl-carousel-o>
+                </div>
+            </div>
+            <div class="col-lg-7 offset-lg-1 col-md-12 col-sm-12 bg-light d-flex flex-column justify-content-center">
+                <div class="p-5">
+                    <h4 class="pb-1">{{ProductDetailsContainer.title}}</h4>
+                    <p>{{ProductDetailsContainer.description}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="main-color fw-medium">{{ProductDetailsContainer.category.name}}</p>
+                        <p class="main-color fw-medium">{{ProductDetailsContainer.brand.name}}</p>
+                    </div>
+                    <h5>{{ProductDetailsContainer.price }} EGP</h5>
+                    <div class=" py-1">
+                        <p class="main-color fw-medium">Avaliable now : {{ProductDetailsContainer.quantity}}</p>
+                        <div class="d-flex">
+                            <p class="main-color fw-semibold">{{ProductDetailsContainer.ratingsAverage}}</p>
+                            <i class="fa-solid fa-star main-color ps-1 fs-5"></i>
+                        </div>
+                    </div>
+                    <button (click)="Add(ProductDetailsContainer._id)" class="btn button-main p-3 w-100">
+                    <i *ngIf="IsLoading"  class="fas fa-spinner fa-spin main-color"></i>
+                    <span *ngIf="!IsLoading">Add To Cart</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <app-loading *ngIf="ProductDetailsContainer == null"></app-loading>
+    </div>
+</div>
+
+<app-footer></app-footer>

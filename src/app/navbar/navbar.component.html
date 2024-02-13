@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets\logo.png" width="75" height="62" alt="">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link fw-medium" routerLink="home" aria-current="page">Home</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link fw-medium" routerLink="products">Products</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link fw-medium" routerLink="category">Categories</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link fw-medium" routerLink="brands">Brands</a>
+                </li>
+
+
+            </ul>
+
+            <ul class="navbar-nav ms-auto ">
+                <a *ngIf="isLogin" class="nav-link fw-medium position-relative" routerLink="cart">
+                    <i class="fa-solid fa-cart-shopping main-color fs-5 me-2"></i>
+                    <span class="badge bg-danger main-color">{{NumCartItem}}</span>
+                </a>
+                <li *ngIf="!isLogin" class="nav-item ">
+                    <a class="nav-link fw-medium" routerLink="register" aria-current="page">Sign Up</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item ">
+                    <a class="nav-link fw-medium" routerLink="login">Sign In</a>
+                </li>
+                <li *ngIf="isLogin">
+                    <span (click)="LogOut()" class="me-2 cursor-pointer nav-link ">LogOut</span>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

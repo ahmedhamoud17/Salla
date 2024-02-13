@@ -1,0 +1,53 @@
+<div>
+    <div class="container p-5 my-5 bg-light">
+
+        <div class="d-flex">
+            <h2 class="fw-bold py-1 mt-3 me-2">Pay For Salla</h2>
+            <img src="assets\logo.png" width="90" height="75" alt="" class="mb-5">
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <form (ngSubmit)="OnlinePay(OnlinePayForm)" [formGroup]="OnlinePayForm">
+
+                    <label for="   " class="mb-2">Name</label>
+                    <input type="text" formControlName="   " id="   " class="form-control  mb-2 shadow-none border-0 ">
+                    <div *ngIf="OnlinePayForm.get('   ')?.errors && OnlinePayForm.get('   ')?.touched"
+                        class="alert alert-danger ">
+                        <p *ngIf="OnlinePayForm.get('   ')?.getError('required')" class="m-0">Field Is Required
+                        </p>
+                    </div>
+        
+                    <label for="phone" class="mb-2">Phone</label>
+                    <input type="tel" formControlName="phone" id="phone" class="form-control  mb-2 shadow-none border-0 ">
+                    <div *ngIf="OnlinePayForm.get('phone')?.errors && OnlinePayForm.get('phone')?.touched"
+                        class="alert alert-danger ">
+                        <p *ngIf="OnlinePayForm.get('phone')?.getError('required')" class="m-0">Field Is Required
+                        </p>
+                        <p *ngIf="OnlinePayForm.get('phone')?.getError('pattern')" class="m-0">Enter A Valid Phone Number
+                        </p>
+                    </div>
+        
+                    <label for="city" class="mb-2">City</label>
+                    <input type="text" formControlName="city" id="city" class="form-control  mb-2 shadow-none border-0 ">
+                    <div *ngIf="OnlinePayForm.get('city')?.errors && OnlinePayForm.get('city')?.touched"
+                    class="alert alert-danger ">
+                    <p *ngIf="OnlinePayForm.get('city')?.getError('required')" class="m-0">Field Is Required
+                    </p>
+                </div>
+        
+                    <button [disabled]="OnlinePayForm.invalid" type="submit" class="cursor-pointer button-main my-3 w-50">
+                        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                        <span *ngIf="!isLoading" class="fw-bold">Pay Now</span>
+        
+                    </button>
+        
+                </form>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 bg-light d-flex flex-column justify-content-center">
+                <div class="stripe p-5">
+                    <img class="w-100 login" src="assets\stripe.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

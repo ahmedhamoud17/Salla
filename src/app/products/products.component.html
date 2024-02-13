@@ -1,0 +1,36 @@
+<div class="py-1">
+    <div class="container p-5">
+        <div class="row gy-5" *ngIf="ProductsConatiner.length">
+            <h5 class="pb-3 fw-bold">Popular Products</h5>
+
+            <div *ngFor="let product of ProductsConatiner.slice(20,40).reverse()" class="col-lg-3 col-md-6 col-sm-12">
+                <div class="product p-3">
+                    <a class="text-decoration-none" [routerLink]="['/productsdetails',product._id]">
+                        <img class="w-100" [src]="product.imageCover" alt="">
+                    <div class="p-3">
+                        <div class="d-flex justify-content-between">
+                            <p class="main-color font-sm">{{product.category.name}}</p>
+                            <p class="main-color font-sm">{{product.brand.name}}</p>
+                        </div>
+                        <h5 class="py-1 text-dark">{{product.title.split(' ').slice(0, 2).join(' ')}}</h5>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-muted fw-bold">{{product.price}} EGP</p>
+                            <div class="d-flex ">
+                                <i class="fa-solid fa-star main-color px-1 fs-5"></i>
+                                <p class="text-muted fw-bold">{{product.ratingsAverage}}</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <button class="btn button-main p-3 w-100">Explore</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <app-loading *ngIf="ProductsConatiner.length == 0"></app-loading>
+    </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,14 @@
+<div class="">
+    <div class="container  p-5">
+        <div class="row gy-5" *ngIf="BrandsContainer.length">
+            <h5 class="pb-3 fw-bold">Salla Brands</h5>
+            <div *ngFor="let brand of BrandsContainer.slice(12,24).reverse()" class="col-lg-2 col-md-4 col-sm-6">
+                <img class="w-100" [src]="brand.image" alt="">
+            </div>
+        </div>
+        <app-loading  *ngIf="BrandsContainer.length == 0"></app-loading>
+    </div>
+</div>
+
+
+
