@@ -15,15 +15,15 @@ import { AllordersComponent } from './allorders/allorders.component';
 
 const routes: Routes = [
   {path:'' , redirectTo:'home' , pathMatch:'full'},
-  {path:'home',canActivate:[authGuard] , component:HomeComponent},
-  {path:'brands',canActivate:[authGuard] , component:BrandsComponent},
+  {path:'home', component:HomeComponent},
+  {path:'brands', component:BrandsComponent},
   {path:'checksession',canActivate:[authGuard] , component:ChecksessionComponent},
   {path:'allorders',canActivate:[authGuard] , component:AllordersComponent},
   {path:'register' , component:RegisterComponent},
   {path:'login' , component:LoginComponent},
-  {path:'products',canActivate:[authGuard] , component:ProductsComponent},
+  {path:'products', component:ProductsComponent},
   {path:'productsdetails/:id',canActivate:[authGuard] , component:ProductdetailsComponent},
-  {path:'category',canActivate:[authGuard] , component:CategoryComponent},
+  {path:'category', component:CategoryComponent},
   {path:'cart',canActivate:[authGuard] , component:CartComponent},
   {path:'**' , component:NotfoundComponent},
 ];
